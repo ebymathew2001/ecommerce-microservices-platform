@@ -2,24 +2,29 @@ package com.ecommerce.user_service.entity;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String name;
+    private String name;
 
     @Column(unique = true)
-    public String email;
+    private String email;
 
-    public String password;
+    private String password;
 
     @Enumerated(EnumType.STRING)
-    public Role role;
+    private Role role;
 
 }
